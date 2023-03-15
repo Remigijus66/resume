@@ -1,13 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import MainContext from "./context/MainContext";
 import Resume from './components/Resume';
 
 
 function App() {
+
+  const [format, setFormat] = useState('')
+  const states = {
+    format, setFormat
+  }
   return (
     <div className="App">
-      <Resume />
-      {/* <header className="App-header">
+      <MainContext.Provider value={states}>
+
+
+        <Resume />
+        {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -21,6 +31,7 @@ function App() {
           Learn React
         </a>
       </header> */}
+      </MainContext.Provider>
     </div >
   );
 }

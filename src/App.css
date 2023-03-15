@@ -131,3 +131,14 @@ p {
   font-size:medium;
   margin: 10px 10px;
 }
+
+.radiobox {
+  font-size: 12px;
+   width: 205px;
+   margin-bottom: 7px;
+   border: 1px darkgray solid;
+  }
+  
+  .invalid {
+    background-color: rgb(255, 225, 215);
+  }
