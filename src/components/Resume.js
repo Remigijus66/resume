@@ -3,6 +3,7 @@ import Boring from './Boring';
 import Radio from './Radio';
 import MainContext from "../context/MainContext";
 import Raw from './Raw';
+import Colorful from './Colorfull';
 
 const Resume = () => {
   const { format } = useContext(MainContext)
@@ -13,7 +14,8 @@ const Resume = () => {
       <Radio />
       {format === 'Raw' && < Raw />}
       {format === 'Boring' && <Boring />}
-      {format === 'Invalid' && <h2>Sory, selected option does not exists</h2>}
+      {format === 'Colorful' && <Colorful />}
+      {format === 'Invalid' && <h2 style={{ maxWidth: '50%', margin: 'auto' }}>Sorry, selected option does not exists</h2>}
 
 
 

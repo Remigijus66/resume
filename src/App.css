@@ -63,8 +63,9 @@ p {
   margin: auto
 }
 .record {
-  display: flex
+  display: flex;
 }
+
 
 .name {
   grid-area: name-area;
@@ -75,6 +76,7 @@ p {
 }
 .contacts {
   grid-area: contacts-area;
+  font-size: 12px;
   background-color: rgb(230, 230, 230);
   border-radius: 20px;
 }
@@ -113,11 +115,12 @@ p {
 }
 
 .grid {
-  background-color: ghostwhite;
+  background-color: rgb(244, 244, 253);
   max-width: 800px;
   width: 95%;
-  margin: 15px auto;
+  margin: 0 auto;
   gap: 15px;
+  padding: 15px;
   display: grid;
   grid-template-columns: 1fr  3fr;
   grid-template-areas:
@@ -133,12 +136,48 @@ p {
 }
 
 .radiobox {
+  position: absolute;
   font-size: 12px;
-   width: 205px;
-   margin-bottom: 7px;
+  width: 100px;
+   margin: 30px;
+   margin-top: 70px;
    border: 1px darkgray solid;
+   display:flex;
+   flex-direction: column;
   }
-  
+  .radio-button {
+    display: flex;
+        }
+  .radio-button input {
+   width: 15px;
+        }
+  .radio-button p {
+  margin: 5px 1px 5px 7px;
+        }
+
   .invalid {
     background-color: rgb(255, 225, 215);
   }
+  .red{
+    background-color: red;
+  }
+  .yellow{
+    background-color: yellow;
+  }
+  .green {
+background-color: green;
+  }
+  .indigo {
+    background-color: indigo;
+  }
+  .cyan {
+    background-color: cyan;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .hidden {
+           overflow: hidden;
+         }
+
+

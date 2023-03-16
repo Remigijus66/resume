@@ -3,8 +3,8 @@ import MainContext from "../context/MainContext";
 
 function Radio() {
   const [apperance, setApperance] = useState('');
-  const [verifyResult, setVerifyResult] = useState('')
   const { format, setFormat } = useContext(MainContext)
+
 
 
   function onChangeValue(event) {
@@ -18,14 +18,28 @@ function Radio() {
     if (event.target.value === 'Invalid') {
       setFormat('Invalid')
     }
+    if (event.target.value === 'Colorful') {
+      setFormat('Colorful')
+    }
 
   }
 
   return (
-    <div className={`radiobox ${format === 'Invalid' ? 'invalid' : ''}`} onChange={onChangeValue}> Format:
-      <input style={{ width: '15px' }} type="radio" value="Raw" name="format" checked={apperance === "Raw"} onChange={onChangeValue} /> Raw
-      <input style={{ width: '15px' }} type="radio" value="Boring" name="format" checked={apperance === "Boring"} onChange={onChangeValue} /> Boring
-      <input style={{ width: '15px' }} type="radio" value="Invalid" name="format" checked={apperance === "Invalid"} onChange={onChangeValue} /> Absolutely Perfect
+    <div className={`radiobox ${format === 'Invalid' ? 'invalid' : ''}`} onChange={onChangeValue}>
+      <strong>Select format</strong>
+      <div className="radio-button">
+        <input type="radio" value="Raw" name="format" checked={apperance === "Raw"} onChange={onChangeValue} /> <p>Raw</p>
+      </div>
+      <div className="radio-button">
+        <input type="radio" value="Boring" name="format" checked={apperance === "Boring"} onChange={onChangeValue} />
+        <p> Boring </p>
+      </div>
+      <div className="radio-button">
+        <input type="radio" value="Colorful" name="format" checked={apperance === "Colorful"} onChange={onChangeValue} /> <p>Colorful </p>
+      </div>
+      <div className="radio-button">
+        <input type="radio" value="Invalid" name="format" checked={apperance === "Invalid"} onChange={onChangeValue} /> <p>Absolutely Perfect</p>
+      </div>
     </div>
 
   );
