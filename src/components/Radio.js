@@ -21,6 +21,9 @@ function Radio() {
     if (event.target.value === 'Colorful') {
       setFormat('Colorful')
     }
+    if (event.target.value === 'Illiterating') {
+      setFormat('Illiterating')
+    }
 
   }
 
@@ -36,6 +39,9 @@ function Radio() {
       </div>
       <div className="radio-button">
         <input type="radio" value="Colorful" name="format" checked={apperance === "Colorful"} onChange={onChangeValue} /> <p>Colorful </p>
+      </div>
+      <div className="radio-button">
+        <input type="radio" value="Illiterating" name="format" checked={apperance === "Illiterating"} onChange={onChangeValue} /> <p>Illiterating</p>
       </div>
       <div className="radio-button">
         <input type="radio" value="Invalid" name="format" checked={apperance === "Invalid"} onChange={onChangeValue} /> <p>Absolutely Perfect</p>

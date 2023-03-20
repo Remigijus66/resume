@@ -1,7 +1,7 @@
 .App {
   /* text-align: center; */
 }
-/* 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -10,6 +10,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+    /* animation: app-logo-spin infinite 20s ease ; */
   }
 }
 
@@ -35,7 +36,7 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
 
 
 
@@ -94,7 +95,7 @@ p {
   border-radius: 20px;
 }
 .skills-list {
-  width: 50%;
+  width: 80%;
   margin: auto;
   /* margin-left: 140px; */
 }

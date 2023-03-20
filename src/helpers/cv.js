@@ -4,9 +4,10 @@ const curriculumVitae = {
     lastName: 'Bartaška',
     tel: '+370 686 65589',
     eMail: 'remigijus.bartaska@gmail.com',
-    gitHub: 'https://github.com/Remigijus66'
+    gitHub: 'https://github.com/Remigijus66',
+    linkedin: 'www.linkedin.com/in/remigijus-bartaska'
   },
-  skills: ['CSS', 'JavaScript', 'React', 'Node'],
+  skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js', 'MongoDB'],
   education: [
     {
       institution: 'Code Academy',
