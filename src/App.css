@@ -1,20 +1,10 @@
-.App {
-  /* text-align: center; */
-}
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --main-color: #ddd;
+  --front-color: #4880f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.header {
+  background-color: #4880f0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,23 +14,43 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes Header-flip {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.flip-card {
+  width: 300px;
+  height: 200px;
+}
 
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  animation: Header-flip infinite 3s linear;
+}
 
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
+.flip-card-front {
+  transform: scaleX(-1);
+}
 
-
+.flip-card-back {
+  transform: rotateY(180deg);
+}
 
 cite {
   font-weight: bold;
@@ -48,12 +58,14 @@ cite {
   width: 120px;
   display: inline-block;
 }
+
 h3 {
   width: 30%;
   margin: auto;
 }
+
 p {
-  margin:3px 0px 3px 0px;
+  margin: 3px 0px 3px 0px;
 }
 
 .dash {
@@ -62,55 +74,61 @@ p {
   height: 10px;
   margin: auto
 }
+
 .record {
   display: flex;
 }
 
-
 .name {
   grid-area: name-area;
   text-align: center;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   border-radius: 20px;
   margin-top: 20px;
 }
+
 .contacts {
   grid-area: contacts-area;
   font-size: 12px;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   border-radius: 20px;
 }
+
 .photo {
   grid-area: photo-area;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   width: 180px;
   border-radius: 20px;
-  margin:auto
+  margin: auto
 }
+
 .skills {
   grid-area: skills-area;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   margin-top: 80px;
   border-radius: 20px;
 }
+
 .skills-list {
-  width: 50%;
+  width: 80%;
   margin: auto;
-  /* margin-left: 140px; */
 }
+
 .education {
   grid-area: education-area;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   border-radius: 20px;
 }
+
 .experience {
   grid-area: experience-area;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   border-radius: 20px;
 }
+
 .languages {
   grid-area: languages-area;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--main-color);
   border-radius: 20px;
 }
 
@@ -122,7 +140,7 @@ p {
   gap: 15px;
   padding: 15px;
   display: grid;
-  grid-template-columns: 1fr  3fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-areas:
     "photo-area name-area"
     "photo-area skills-area "
@@ -130,54 +148,94 @@ p {
     "contacts-area  experience-area"
     "contacts-area languages-area";
 }
+
 .icon {
-  font-size:medium;
+  font-size: medium;
   margin: 10px 10px;
+}
+
+.allover {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .radiobox {
   position: absolute;
   font-size: 12px;
   width: 100px;
-   margin: 30px;
-   margin-top: 70px;
-   border: 1px darkgray solid;
-   display:flex;
-   flex-direction: column;
-  }
-  .radio-button {
-    display: flex;
-        }
-  .radio-button input {
-   width: 15px;
-        }
-  .radio-button p {
+  top: 100px;
+  left: 30px;
+  border: 1px darkgray solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  display: flex;
+}
+
+.radio-button input {
+  width: 15px;
+}
+
+.radio-button p {
   margin: 5px 1px 5px 7px;
-        }
+}
 
-  .invalid {
-    background-color: rgb(255, 225, 215);
-  }
-  .red{
-    background-color: red;
-  }
-  .yellow{
-    background-color: yellow;
-  }
-  .green {
-background-color: green;
-  }
-  .indigo {
-    background-color: indigo;
-  }
-  .cyan {
-    background-color: cyan;
-    }
-    .blue {
-      background-color: blue;
-    }
-    .hidden {
-           overflow: hidden;
-         }
+.invalid {
+  background-color: rgb(255, 225, 215);
+}
 
+.red {
+  background-color: red;
+}
 
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.indigo {
+  background-color: indigo;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.track {
+  width: 200px;
+  top: 180px;
+  left: 100px;
+  height: 4px;
+  background-color: var(--main-color);
+  margin: auto;
+  position: relative;
+}
+
+.marker {
+  height: 4px;
+  background-color: red;
+}
+
+.replacing {
+  width: 200px;
+  top: 160px;
+  left: 100px;
+  height: 20px;
+  margin: auto;
+  position: relative;
+}
