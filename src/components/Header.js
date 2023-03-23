@@ -1,27 +1,21 @@
-// import React from 'react';
-import lego from '../Documents/lego.jpg';
-
 const Header = () => {
 
   return (
     <div>
       <header className="header">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              {/* <img src={lego} alt="logo" style={{ width: '300px', height: '200px' }} /> */}
+        <div className="flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
               <h1>Curriculum Vitae</h1>
             </div>
-            <div class="flip-card-back">
+            <div className="flip-card-back">
               <h1>Curriculum Vitae</h1>
-
             </div>
           </div>
         </div>
-
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

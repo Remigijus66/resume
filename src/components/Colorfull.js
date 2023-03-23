@@ -1,20 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import MainContext from "../context/MainContext";
-import Pdf from '../Documents/curriculumVitae.pdf';
-import lego from '../Documents/lego.jpg';
 import remi from '../Documents/remi.jpg';
 import curriculumVitae from '../helpers/cv';
-import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import MainContext from '../context/MainContext';
-
-
 
 const Colorful = () => {
   const [indent, setIndent] = useState(0)
   const [timePassed, setTimePassed] = useState(0)
-
   const { format } = useContext(MainContext)
+
   useEffect(() => {
     setNameColor(false)
     setContactsColor(false)
@@ -25,28 +20,28 @@ const Colorful = () => {
     setIndent(0)
     setTimePassed(0)
     const nameTimer = setTimeout(() => {
-      setNameColor(true);
-      clearTimeout(nameTimer);
+      setNameColor(true)
+      clearTimeout(nameTimer)
     }, 1000)
     const contactsTimer = setTimeout(() => {
-      setContactsColor(true);
-      clearTimeout(contactsTimer);
+      setContactsColor(true)
+      clearTimeout(contactsTimer)
     }, 2000)
     const skillsTimer = setTimeout(() => {
-      setSkillsColor(true);
-      clearTimeout(skillsTimer);
+      setSkillsColor(true)
+      clearTimeout(skillsTimer)
     }, 5000)
     const educationTimer = setTimeout(() => {
       setEducationColor(true);
       clearTimeout(educationTimer);
     }, 3500)
     const experienceTimer = setTimeout(() => {
-      setExperienceColor(true);
-      clearTimeout(experienceTimer);
+      setExperienceColor(true)
+      clearTimeout(experienceTimer)
     }, 2200)
     const languagesTimer = setTimeout(() => {
-      setLanguagesColor(true);
-      clearTimeout(languagesTimer);
+      setLanguagesColor(true)
+      clearTimeout(languagesTimer)
     }, 3000)
   }, [format])
 
@@ -57,7 +52,7 @@ const Colorful = () => {
         if (timePassed >= 5001)
           setIndent(indent - 10)
       }, 100)
-  }, [timePassed])
+  }, [timePassed, indent])
 
   const [nameColor, setNameColor] = useState(false)
   const [contactsColor, setContactsColor] = useState(false)
@@ -66,10 +61,8 @@ const Colorful = () => {
   const [experienceColor, setExperienceColor] = useState(false)
   const [languagesColor, setLanguagesColor] = useState(false)
 
-
   return (
     <div className='grid'>
-      {/* <div className={` name hidden ${nameColor ? 'blue' : ''}`} style={{ textIndent: `${nameColor ? indent + '%' : '0%'} ` }} onMouseOver={() => setNameColor(false)} onMouseLeave={() => setNameColor(true)} > */}
       <div className={` name hidden ${nameColor ? 'blue' : ''}`} style={{ textIndent: `${nameColor ? indent + '%' : '0%'} ` }} onMouseOver={() => setNameColor(false)} onMouseLeave={() => setNameColor(true)} >
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
       </div>
@@ -123,7 +116,6 @@ const Colorful = () => {
         </div>
       </div>
       <div className={` experience ${experienceColor ? 'red hidden' : ''}`} style={{ textIndent: `${experienceColor ? indent + '%' : '0%'} ` }} onMouseOver={() => setExperienceColor(false)} onMouseLeave={() => setExperienceColor(true)} >
-
         <h3>Work Experience</h3>
         {(curriculumVitae.workExperience.map((x, i) => <div key={i} >
           <div className='dash'></div>
@@ -132,9 +124,7 @@ const Colorful = () => {
           {<div className='record'><cite>Position:</cite>{(x.position)}</div>}
           {<div className='record'><cite>Responsibilities:</cite>{(x.responsibilities)} </div>}
         </div>))}</div>
-
       <div className={` languages ${languagesColor ? 'cyan hidden' : ''}`} style={{ textIndent: `${languagesColor ? indent + '%' : '0%'} ` }} onMouseOver={() => setLanguagesColor(false)} onMouseLeave={() => setLanguagesColor(true)}>
-
         <h3>Languages</h3>
         <div className='dash'></div>
         <div className='record'>
@@ -145,7 +135,7 @@ const Colorful = () => {
         </div>
       </div>
     </div >
-  );
-};
+  )
+}
 
-export default Colorful;
+export default Colorful

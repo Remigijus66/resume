@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
-// import MainContext from "../context/MainContext";
-import Pdf from '../Documents/curriculumVitae.pdf';
-import lego from '../Documents/lego.jpg';
+import React from 'react';
 import remi from '../Documents/remi.jpg';
 import curriculumVitae from '../helpers/cv';
-import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 
 const Boring = () => {
@@ -63,7 +60,6 @@ const Boring = () => {
         </div>
       </div>
       <div className='experience'>
-
         <h3>Work Experience</h3>
         {(curriculumVitae.workExperience.map((x, i) => <div key={i} >
           <div className='dash'></div>
@@ -72,9 +68,7 @@ const Boring = () => {
           {<div className='record'><cite>Position:</cite>{(x.position)}</div>}
           {<div className='record'><cite>Responsibilities:</cite>{(x.responsibilities)} </div>}
         </div>))}</div>
-
       <div className='languages'>
-
         <h3>Languages</h3>
         <div className='dash'></div>
         <div className='record'>
@@ -85,7 +79,7 @@ const Boring = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Boring;
+export default Boring

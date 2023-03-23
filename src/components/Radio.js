@@ -2,13 +2,11 @@ import React, { useContext, useState } from "react";
 import MainContext from "../context/MainContext";
 
 function Radio() {
-  const [apperance, setApperance] = useState('');
+  const [apperance, setApperance] = useState('')
   const { format, setFormat } = useContext(MainContext)
 
-
-
   function onChangeValue(event) {
-    setApperance(event.target.value);
+    setApperance(event.target.value)
     if (event.target.value === 'Raw') {
       setFormat('Raw')
     }
@@ -24,7 +22,6 @@ function Radio() {
     if (event.target.value === 'Illiterating') {
       setFormat('Illiterating')
     }
-
   }
 
   return (
@@ -47,8 +44,7 @@ function Radio() {
         <input type="radio" value="Invalid" name="format" checked={apperance === "Invalid"} onChange={onChangeValue} /> <p>Absolutely Perfect</p>
       </div>
     </div>
-
-  );
+  )
 }
 
-export default Radio;
+export default Radio

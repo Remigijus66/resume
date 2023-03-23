@@ -1,3 +1,8 @@
+:root {
+  --main-color: #ddd;
+  --front-color: #4880f0;
+}
+
 .header {
   background-color: #4880f0;
   min-height: 100vh;
@@ -19,7 +24,6 @@
   }
 }
 
-
 .flip-card {
   width: 300px;
   height: 200px;
@@ -30,36 +34,23 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  animation: Header-flip infinite 2s linear;
+  animation: Header-flip infinite 3s linear;
 }
-
-
-
 
 .flip-card-front,
 .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-
 .flip-card-front {
-  /* background-color: var(--front-color); */
-  /* color: white; */
   transform: scaleX(-1);
 }
 
-
 .flip-card-back {
-  /* background-color: var(--front-color); */
-  /* color: white; */
   transform: rotateY(180deg);
 }
-
-
 
 cite {
   font-weight: bold;
@@ -87,7 +78,6 @@ p {
 .record {
   display: flex;
 }
-
 
 .name {
   grid-area: name-area;
@@ -122,7 +112,6 @@ p {
 .skills-list {
   width: 80%;
   margin: auto;
-  /* margin-left: 140px; */
 }
 
 .education {
@@ -163,6 +152,13 @@ p {
 .icon {
   font-size: medium;
   margin: 10px 10px;
+}
+
+.allover {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .radiobox {
@@ -220,14 +216,6 @@ p {
   overflow: hidden;
 }
 
-:root {
-  --main-color: #ddd;
-  --front-color: #4880f0;
-  /* --main-color: #570909; */
-}
-
-
-
 .track {
   width: 200px;
   top: 180px;
@@ -248,11 +236,6 @@ p {
   top: 160px;
   left: 100px;
   height: 20px;
-  /* background-color: var(--main-color); */
   margin: auto;
   position: relative;
-}
-
-.replaced {
-  color: rgb(226, 187, 174)
 }

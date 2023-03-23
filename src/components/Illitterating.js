@@ -1,52 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react';
-import MainContext from "../context/MainContext";
-import Pdf from '../Documents/curriculumVitae.pdf';
-import lego from '../Documents/lego.jpg';
+import React, { useEffect, useState } from 'react';
 import remi from '../Documents/remi.jpg';
 import curriculumVitae from '../helpers/cv';
-import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import Boring from './Boring';
 
-
 const Illiterating = () => {
-
-  const [cvCopy, setCvCopy] = useState({});
-  const { format, setFormat } = useContext(MainContext)
-  const [name, setName] = useState([])
   const [illiteral, setIlliteral] = useState(false)
-  const [personalData, setPersonalData] = useState([]);
-  const [skillsData, setSkillsData] = useState([]);
-  const [educationData, setEducationData] = useState([]);
-  const [experienceData, setExperienceData] = useState([]);
-  const [languagesData, setLanguagesData] = useState([]);
+  const [personalData, setPersonalData] = useState([])
+  const [skillsData, setSkillsData] = useState([])
+  const [educationData, setEducationData] = useState([])
+  const [experienceData, setExperienceData] = useState([])
+  const [languagesData, setLanguagesData] = useState([])
   const [timeLeft, setTimeLeft] = useState(100)
   const [timer, setTimer] = useState(false)
-  const [replaced, setReplaced] = useState(false)
-  const [display, setDisplay] = useState([])
+  const [display, setDisplay] = useState(['Looks nice'])
 
   useEffect(() => {
-    console.log('use effect evoced')
-    setCvCopy(curriculumVitae)
-    // console.log('original', curriculumVitae)
-    // console.log('copy', cvCopy)
     setPersonalData(Object.values(Object.values(curriculumVitae)[0]))
     setSkillsData(Object.values(curriculumVitae)[1])
-    // setEducationData(Object.values(Object.values(curriculumVitae)[2][0]).concat(Object.values(Object.values(curriculumVitae)[2][1])))
     setEducationData(Object.values(Object.values(curriculumVitae)[2]).reduce((sum, curr) => sum.concat(Object.values(curr)), []))
-
     setExperienceData(Object.values(Object.values(curriculumVitae)[3]).reduce((sum, curr) => sum.concat(curr), []))
-    console.log(Object.values(Object.values(curriculumVitae)[3]).reduce((sum, curr) => sum.concat(curr), []))
-
-
     setLanguagesData(Object.values(Object.values(curriculumVitae)[4]))
-
-    // const timer = setTimeout(() => {
-    //   setIlliteral(true);
-    //   kickLetters(letters)
-    //   clearTimeout(timer);
-    // }, 1000)
-  }, [format])
+  }, [])
 
   useEffect(() => {
     if (timer) {
@@ -61,54 +37,31 @@ const Illiterating = () => {
     }
   }, [timer, timeLeft])
 
-  const letters = [['a'], ['b'], ['e']];
+  const letters = ['A', 'B', 'R', 'E', 'I', 'S', '~']
 
-
-  const countTime = (arr) => {
+  const countTime = () => {
     setTimer(true)
     setTimeLeft(100)
-    setReplaced(false)
   }
   const kickLetters = async (arr) => {
-    setDisplay(letters[0])
     for (let i = 0; i < arr.length; i++) {
       await handleTiming(arr[i])
-      setDisplay(arr[i + 1] || ['Nice!'])
-      console.log('change letter in screen', arr[i + 1] || 'over')
+      setDisplay(arr[i] !== '~' ? `Oh no. We lost "${arr[i]}"` : 'Looks nice')
     }
-
-  };
-
-
-  const handleTiming = async (letters) => {
+  }
+  const handleTiming = async (letter) => {
     countTime()
     function timeout(delay) {
-      return new Promise(res => setTimeout(res, delay));
-
+      return new Promise(res => setTimeout(res, delay))
     }
-
     await timeout(6200)
-    letters.forEach(e => {
-      handleReplace(e)
-    });
-    console.log('kick now and wait for 2 seconds', letters)
-
-    setReplaced(true)
-    function timeout1(delay) {
-      return new Promise(res => setTimeout(res, delay));
-    }
-    await timeout1(2000)
-
+    handleReplace(letter)
   }
-
-
   const replaceLetter = (string, letter) => {
-    const regex = new RegExp(letter, "gi");
+    const regex = new RegExp(letter, "gi")
     const newString = string.replaceAll(regex, '-')
     return newString
   }
-
-
   const handleReplace = (ltr) => {
     const nextPersonalData = personalData.map((x) => replaceLetter(x, ltr))
     setPersonalData(nextPersonalData)
@@ -116,42 +69,20 @@ const Illiterating = () => {
     setSkillsData(nextSkillsData)
     const nextEducationData = educationData.map((x) => replaceLetter(x, ltr))
     setEducationData(nextEducationData)
-    // let nextExperienceData = experienceData
-    // nextExperienceData.map((record) => {
-    //   Object.keys(record).forEach((key) => {
-    //     record[key] = replaceLetter(record[key], ltr)
-    //   })
-    // });
-    // setExperienceData(nextExperienceData)
-    // mutates curriculumVitae object  should be replaced 
     const nextLanguagesData = languagesData.map((x) => replaceLetter(x, ltr))
     setLanguagesData(nextLanguagesData)
   }
 
-
-  const print = () => {
-    setTimeLeft(99)
-    setReplaced(true)
-
-  }
-
   return (
     <div>
-      <h3 className={`replacing ${replaced ? 'replaced' : ''}`}>{display.map((x, i) => <span key={i} > {x + ''}</span>)}</h3>
-
+      {!illiteral && <div className='allover' onMouseMove={() => { kickLetters(letters); setIlliteral(true) }}>kick</div>}
+      <h3 className='replacing'>{display}</h3>
       <div className='track'>
-
         <div className='marker' style={{ maxWidth: `${timeLeft}%` }}></div>
       </div>
       {<div className='grid' >
-
         <div className='name'>
-          <button onClick={() => { kickLetters(letters) }}>kick</button>
-          <button onClick={() => { handleReplace('a') }}>replace a in  personal data</button>
-          <button onClick={() => { handleReplace('e') }}>replace e in  personal data</button>
-          <button onClick={() => { handleReplace('s') }}>replace s in  personal data</button>
-          <button onClick={() => { print() }}>print</button>
-
+          {!illiteral && <div className='allover' onMouseMove={() => { kickLetters(letters); setIlliteral(true) }}>kick</div>}
           <h2>{(personalData[0]) + ' ' + (personalData[1])}</h2>
         </div>
         <div className='contacts'>
@@ -224,7 +155,7 @@ const Illiterating = () => {
         </div>
       </div > || <Boring />}
     </div>
-  );
-};
+  )
+}
 
-export default Illiterating;
+export default Illiterating
