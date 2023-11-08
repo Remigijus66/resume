@@ -37,7 +37,7 @@ const Illiterating = () => {
     }
   }, [timer, timeLeft])
 
-  const letters = ['A', 'B', 'R', 'E', 'I', 'S', '~']
+  const letters = ['A', 'B', 'R', '~']
 
   const countTime = () => {
     setTimer(true)
@@ -57,6 +57,7 @@ const Illiterating = () => {
     await timeout(6200)
     handleReplace(letter)
   }
+  
   const replaceLetter = (string, letter) => {
     const regex = new RegExp(letter, "gi")
     const newString = string.replaceAll(regex, '-')
