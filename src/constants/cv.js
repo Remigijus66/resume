@@ -53,5 +53,3 @@ const curriculumVitae = {
   }
 }
 export default curriculumVitae
-
-
