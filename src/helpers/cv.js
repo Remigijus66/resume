@@ -24,6 +24,12 @@ const curriculumVitae = {
   ],
   workExperience: [
     {
+      company: 'UAB Aladin Innovations',
+      dates: '2023-current',
+      position: 'FrontEnd developer',
+      responsibilities: 'Develop new features of React app, Build online games in libs free enviroment'
+    },
+    {
       company: 'UAB Inkstar Europe',
       dates: '2019-2021',
       position: 'Director',
