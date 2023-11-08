@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import remi from '../Documents/remi.jpg';
-import curriculumVitae from '../helpers/cv';
+import curriculumVitae from '../constants/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import MainContext from '../context/MainContext';
