@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import remi from '../Documents/remi.jpg';
-import curriculumVitae from '../helpers/cv';
+import curriculumVitae from '../constants/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import Boring from './Boring';
@@ -57,7 +57,7 @@ const Illiterating = () => {
     await timeout(6200)
     handleReplace(letter)
   }
-  
+
   const replaceLetter = (string, letter) => {
     const regex = new RegExp(letter, "gi")
     const newString = string.replaceAll(regex, '-')
