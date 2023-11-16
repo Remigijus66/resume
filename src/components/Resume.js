@@ -14,8 +14,8 @@ const Resume = () => {
     <div>
       <Radio />
       {format === '' && < Header />}
-      {format === 'Raw' && < Raw />}
       {format === 'Boring' && <Boring />}
+      {format === 'Raw' && < Raw />}
       {format === 'Colorful' && <Colorful />}
       {format === 'Illiterating' && <Illiterating />}
       {format === 'Invalid' && <h2 className='header' style={{ marginTop: '-15px', margin: 'auto' }}>Sorry, selected option does not exists</h2>}
