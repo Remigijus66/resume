@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import MainContext from "../context/MainContext";
 import remi from '../Documents/remi.jpg';
 import curriculumVitae from '../constants/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import Boring from './Boring';
+import closeIcon from '../images/close-black-transparent.png'
 
 const Illiterating = () => {
   const [illiteral, setIlliteral] = useState(false)
@@ -15,6 +17,7 @@ const Illiterating = () => {
   const [timeLeft, setTimeLeft] = useState(100)
   const [timer, setTimer] = useState(false)
   const [display, setDisplay] = useState(['Looks nice'])
+  const { setFormat } = useContext(MainContext)
 
   useEffect(() => {
     setPersonalData(Object.values(Object.values(curriculumVitae)[0]))
@@ -82,6 +85,7 @@ const Illiterating = () => {
         <div className='marker' style={{ maxWidth: `${timeLeft}%` }}></div>
       </div>
       {<div className='grid' >
+      <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')}/>
         <div className='name'>
           {!illiteral && <div className='allover' onMouseMove={() => { kickLetters(letters); setIlliteral(true) }}>kick</div>}
           <h2>{(personalData[0]) + ' ' + (personalData[1])}</h2>

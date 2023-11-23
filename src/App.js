@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from "react";
 import MainContext from "./context/MainContext";
 import Resume from './components/Resume';
-
+import Canvas from './components/Canvas';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <MainContext.Provider value={states}>
 
-
+{/* <Canvas/> */}
         <Resume />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

@@ -27,7 +27,7 @@ const curriculumVitae = {
       company: 'UAB Aladin Innovations',
       dates: '2023-current',
       position: 'FrontEnd developer',
-      responsibilities: 'Develop new features of React app, Build online games in libs free enviroment'
+      responsibilities: 'Develop new features of React app, Build online games OOP'
     },
     {
       company: 'UAB Inkstar Europe',

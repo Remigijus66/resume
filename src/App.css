@@ -3,15 +3,26 @@
   --front-color: #4880f0;
 }
 
+.name-tag {
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  font-size: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
 .header {
-  background-color: #4880f0;
+  /* background-color: #4880f0; */
+ background-image:  linear-gradient(to bottom, #4b6cb7 10%, #182848 90%);
+
   min-height: 100vh;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; */
+  /* font-size: calc(10px + 2vmin);
+  color: white; */
 }
 
 @keyframes Header-flip {
@@ -147,6 +158,7 @@ p {
     "contacts-area education-area"
     "contacts-area  experience-area"
     "contacts-area languages-area";
+    position: relative
 }
 
 .icon {
@@ -163,17 +175,66 @@ p {
 
 .radiobox {
   position: absolute;
-  font-size: 12px;
-  width: 100px;
-  top: 100px;
-  left: 30px;
-  border: 1px darkgray solid;
+  font-size: 18px;
+  width: 260px;
+ z-index: 0;
+  top: 120px;
+  left: 300px;
+  border-radius: 11px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  background: #FFFFFF;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px 0;
 }
-
+.invisible{
+  display: none;
+}
+.box-header {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #473F4E;
+}
+.close-icon {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  top: 14px;
+  /* right: 10px; */
+  left: 790px;
+  right: 10px;
+}
 .radio-button {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px ;
+  width: 160px ;
+  background: radial-gradient( circle farthest-corner at 10% 20%, rgba(237,3,32,0.87) 20.8%, rgba(242,121,1,0.84) 74.4% ) !important;
+
+  border-radius: 32px !important;
+
+  /* width: 200px !important; */
+  height: 35px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  
+  line-height: 24px ;
+  color: #FFFFFF !important;
+  cursor: pointer;
 }
 
 .radio-button input {

@@ -1,12 +1,16 @@
-import React from 'react';
+import {React, useContext} from 'react';
+import MainContext from "../context/MainContext";
 import remi from '../Documents/remi.jpg';
 import curriculumVitae from '../constants/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
+import closeIcon from '../images/close-black-transparent.png'
 
 const Boring = () => {
+  const { setFormat } = useContext(MainContext)
   return (
     <div className='grid'>
+        <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')}/>
       <div className='name'>
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
       </div>
