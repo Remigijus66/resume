@@ -4,11 +4,12 @@ import curriculumVitae from '../constants/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import MainContext from '../context/MainContext';
+import closeIcon from '../images/close-black-transparent.png'
 
 const Colorful = () => {
   const [indent, setIndent] = useState(0)
   const [timePassed, setTimePassed] = useState(0)
-  const { format } = useContext(MainContext)
+  const { format, setFormat } = useContext(MainContext)
 
   useEffect(() => {
     setNameColor(false)
@@ -63,6 +64,7 @@ const Colorful = () => {
 
   return (
     <div className='grid'>
+        <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')}/>
       <div className={` name hidden ${nameColor ? 'blue' : ''}`} style={{ textIndent: `${nameColor ? indent + '%' : '0%'} ` }} onMouseOver={() => setNameColor(false)} onMouseLeave={() => setNameColor(true)} >
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
       </div>

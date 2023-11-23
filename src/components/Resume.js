@@ -12,13 +12,18 @@ const Resume = () => {
 
   return (
     <div>
+      <div className='header'>
+    <div className='name-tag'> <h2>Remigijus Bartaška </h2> 
+    <h2> Front end developer </h2>
+    </div>
       <Radio />
-      {format === '' && < Header />}
+      {/* {format === '' && < Header />} */}
       {format === 'Boring' && <Boring />}
       {format === 'Raw' && < Raw />}
       {format === 'Colorful' && <Colorful />}
       {format === 'Illiterating' && <Illiterating />}
-      {format === 'Invalid' && <h2 className='header' style={{ marginTop: '-15px', margin: 'auto' }}>Sorry, selected option does not exists</h2>}
+      </div>
+      {/* {format === 'Invalid' && <h2 className='header' style={{ marginTop: '-15px', margin: 'auto' }}>Sorry, selected option does not exists</h2>} */}
     </div>
   )
 }
