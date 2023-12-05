@@ -24,6 +24,48 @@
   /* font-size: calc(10px + 2vmin);
   color: white; */
 }
+.meteo {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  background: #FFFFFF;
+}
+.window-container {
+  width: 300px;
+  height: 250px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  background: #FFFFFF;
+}
+.window {
+  position: relative;
+  margin-top: -25px;
+
+}
+.window-view {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+.window-text {
+  position: absolute;
+  top: 25%;
+  left:40%;
+}
+.arrow {
+ display:  inline-block;
+transform: scale(2) rotate(0.5turn);
+}
+.celsius {
+
+}
 
 @keyframes Header-flip {
   from {

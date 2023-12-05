@@ -3,6 +3,7 @@ import { useState } from "react";
 import MainContext from "./context/MainContext";
 import Resume from './components/Resume';
 import Canvas from './components/Canvas';
+import Meteo from './components/Meteo';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
 {/* <Canvas/> */}
         <Resume />
+        <Meteo/>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
