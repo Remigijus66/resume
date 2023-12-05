@@ -12,12 +12,12 @@ const curriculumVitae = {
     {
       institution: 'Code Academy',
       course: 'TypeScript',
-      dates: '2022',
-      duration: '1060H'
-    },
+      dates: '2022', 
+      degree: 'Diploma of Education'
+      },
     {
       institution: 'Vilnius University, Faculty of Economics',
-      studies: 'Automated economic data processing',
+      studies: 'Economic data management systems',
       graduated: '1991',
       degree: 'Master of Science'
     },
@@ -25,7 +25,7 @@ const curriculumVitae = {
   workExperience: [
     {
       company: 'UAB Aladin Innovations',
-      dates: '2023-current',
+      dates: '2022-current',
       position: 'FrontEnd developer',
       responsibilities: 'Develop new features of React app, Build online games OOP'
     },
