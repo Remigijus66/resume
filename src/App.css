@@ -12,11 +12,12 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
-.header {
+.App {
   /* background-color: #4880f0; */
  background-image:  linear-gradient(to bottom, #4b6cb7 10%, #182848 90%);
 
-  min-height: 100vh;
+  min-height: 150vh;
+  min-width: 150vw;
   /* display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,23 +27,23 @@
 }
 .meteo {
   width: 300px;
-  height: 300px;
-  border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 60%;
-  left: 40%;
-  background: #FFFFFF;
-}
-.window-container {
-  width: 300px;
   height: 250px;
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 60%;
-  left: 70%;
+  top: 40%;
+  left: 50%;
   background: #FFFFFF;
+}
+.window-container {
+  /* width: 300px;
+  height: 250px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background: #FFFFFF; */
 }
 .window {
   position: relative;
@@ -334,4 +335,35 @@ p {
   height: 20px;
   margin: auto;
   position: relative;
+}
+
+.list {
+  height: 100vh;
+  border: 3px solid #333;
+}
+
+.card {
+  margin: 10px;
+  border: 3px solid #333;
+  width: 300px;
+  min-height: 150px;
+  box-shadow: 3px 3px 3px #555;
+  background-color: #f5f3f3;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.header-dragable {
+  border-bottom: 2px solid #333;
+  padding: 5px 8px;
+  background-color: #c3d3f9;
+  text-align: center;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+.content {
+  padding: 5px 10px;
 }

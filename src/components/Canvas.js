@@ -1,5 +1,8 @@
 
 // https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
+
+// currently unused
+
 import React, { useRef, useEffect } from 'react'
 
 const Canvas = props => {
