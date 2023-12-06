@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import window from '../Documents/window.png';
 import axios from 'axios';
+// npm install react-draggable
+
+import Dragable from 'react-draggable'
+
 
 const Meteo = () => {
+  const nodeRef = useRef(null);
  const [currentWeather, setCurrentWeather] = useState({})
  const [place, setPlace] = useState('')
 
@@ -77,7 +82,9 @@ const Meteo = () => {
   }
 
   return (
-    <div>
+<Dragable nodeRef={nodeRef} handle=".window-container" >
+
+    <div className="meteo" ref={nodeRef}>
       <div className="window-container">
         <p> {place},  {currentWeather.location?.localtime} </p>
         <p>Outside: {currentWeather.current?.condition.text} </p>
@@ -92,6 +99,7 @@ const Meteo = () => {
         {/* <button onClick={() => getW()}> Refresh</button> */}
       </div>
     </div>
+</Dragable>
   )
 }
 
