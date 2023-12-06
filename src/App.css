@@ -51,21 +51,14 @@
 }
 .window-view {
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 40%;
 }
-.window-text {
-  position: absolute;
-  top: 25%;
-  left:40%;
-}
+
 .arrow {
  display:  inline-block;
-transform: scale(2) rotate(0.5turn);
 }
-.celsius {
 
-}
 
 @keyframes Header-flip {
   from {
