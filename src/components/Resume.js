@@ -12,7 +12,9 @@ const Resume = () => {
   const { format } = useContext(MainContext)
   const nodeRef = useRef(null);
   return (
-    <Dragable nodeRef={nodeRef}>
+    
+<>
+    {/* <Dragable nodeRef={nodeRef}> */}
     <div ref={nodeRef}>
       <Radio />
   
@@ -23,7 +25,8 @@ const Resume = () => {
       </div>
       {/* {format === 'Invalid' && <h2 className='header' style={{ marginTop: '-15px', margin: 'auto' }}>Sorry, selected option does not exists</h2>} */}
     {/* </div> */}
-    </Dragable>
+    {/* </Dragable> */}
+</>
   )
 }
 

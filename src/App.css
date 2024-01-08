@@ -5,16 +5,25 @@
 
 .name-tag {
   position: absolute;
-  top: 30%;
-  left: 70%;
+  top: 30px;
+  left: 20%;
   font-size: 20px;
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  width: 500px;
+  /* height: 700px; */
+  border-radius: 16px;
+  background: #FFFFFF;
+  z-index: 4;
 }
+
+
+
 .App {
   /* background-color: #4880f0; */
- background-image:  linear-gradient(to bottom, #4b6cb7 10%, #182848 90%);
+  /* background-image: linear-gradient(to bottom, #4b6cb7 10%, #182848 90%); */
+  background-image: linear-gradient(115deg, #62cff4, #2c67f2);
 
   min-height: 150vh;
   min-width: 150vw;
@@ -25,16 +34,19 @@
   /* font-size: calc(10px + 2vmin);
   color: white; */
 }
+
 .meteo {
   width: 300px;
   height: 250px;
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 40%;
+  top: 720px;
   left: 50%;
   background: #FFFFFF;
+  z-index: 3;
 }
+
 .window-container {
   /* width: 300px;
   height: 250px;
@@ -45,11 +57,50 @@
   left: 0%;
   background: #FFFFFF; */
 }
+
 .window {
   position: relative;
   margin-top: -25px;
-
 }
+
+.record-label {
+  margin-left: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.record-value {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.drop {
+  width: 30px;
+  height: 30px;
+  border-radius: 40%;
+  /* background-color: red; */
+
+  background: radial-gradient(circle, rgba(245, 245, 245, 0.33657212885154064) 30%, rgba(228, 229, 230, 0) 98%);
+  /* background: radial-gradient(circle, rgba(175,241,246,1) 0%, rgba(251,254,253,1) 100%); */
+  opacity: 0.2;
+
+
+
+  /* margin: 30px; */
+  position: absolute;
+  /* left: 500px;
+  top: 500px; */
+  z-index: 999999999999999999;
+}
+
 .window-view {
   position: absolute;
   top: 30%;
@@ -57,7 +108,7 @@
 }
 
 .arrow {
- display:  inline-block;
+  display: inline-block;
 }
 
 
@@ -118,12 +169,17 @@ p {
 .dash {
   border-bottom: 1px black solid;
   width: 60%;
-  height: 10px;
-  margin: auto
+  margin: 7px auto;
+}
+
+.wide {
+  width: 90%;
+  margin: 15px auto;
 }
 
 .record {
   display: flex;
+  padding: 1px;
 }
 
 .name {
@@ -132,6 +188,7 @@ p {
   background-color: var(--main-color);
   border-radius: 20px;
   margin-top: 20px;
+  padding: 15px 0px;
 }
 
 .contacts {
@@ -139,6 +196,7 @@ p {
   font-size: 12px;
   background-color: var(--main-color);
   border-radius: 20px;
+  padding: 15px 0px;
 }
 
 .photo {
@@ -154,32 +212,38 @@ p {
   background-color: var(--main-color);
   margin-top: 80px;
   border-radius: 20px;
+  padding: 15px 0px;
 }
 
 .skills-list {
-  width: 80%;
+  width: 66%;
   margin: auto;
+  line-height: 40px;
 }
 
 .education {
   grid-area: education-area;
   background-color: var(--main-color);
   border-radius: 20px;
+  padding: 15px 0px;
 }
 
 .experience {
   grid-area: experience-area;
   background-color: var(--main-color);
   border-radius: 20px;
+  padding: 15px 0px;
 }
 
 .languages {
   grid-area: languages-area;
   background-color: var(--main-color);
   border-radius: 20px;
+  padding: 15px 0px;
 }
 
 .grid {
+
   background-color: rgb(244, 244, 253);
   max-width: 800px;
   width: 95%;
@@ -194,12 +258,44 @@ p {
     "contacts-area education-area"
     "contacts-area  experience-area"
     "contacts-area languages-area";
-    position: relative
+  position: relative;
+  z-index: 4;
+  overflow: scroll;
+  max-height: 100vh;
 }
 
 .icon {
   font-size: medium;
-  margin: 10px 10px;
+  /* margin: 10px 10px; */
+  width: 25px;
+  height: 25px;
+  color: black
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.copy-icon {
+  position: absolute;
+  /* padding: 12px 24px; */
+  /* height: 42px;
+  background: #ffffff;
+  border: 1px solid #b0afbe;
+  border-radius: 0px 16px 16px 0px;
+  margin-top: 8px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #a0a0a0; */
+  cursor: pointer;
+  right: 10px;
+  top: 2px;
+}
+
+.relative {
+  position: relative
 }
 
 .allover {
@@ -211,14 +307,14 @@ p {
 
 .radiobox {
   position: absolute;
-  font-size: 18px;
+  font-size: 20px;
   width: 260px;
- z-index: 0;
-  top: 120px;
-  left: 300px;
+
+  top: 100px;
+  left: 50%;
   border-radius: 11px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ddd;
+  border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -226,11 +322,72 @@ p {
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 30px 0;
+  padding: 20px 0;
+  z-index: 3;
 }
-.invisible{
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  width: 180px ;
+  border-radius: 32px ;
+  font-size: 16px ;
+  cursor: pointer;
+  margin: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.red-bkgr {
+  color: #FFFFFF ;
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(237, 3, 32, 0.87) 20.8%, rgba(242, 121, 1, 0.84) 74.4%) !important;
+}
+
+.blue-bkgr {
+    color: #FFFFFF ;
+  background: linear-gradient(39.06deg, #8559F3 8.58%, #657BEA 17.79%, #34B0DC 46.68%, #15D1D3 72.63%, #09DDD0 88.95%) !important;
+}
+.white-bkgr {
+  font-weight:bold;
+} 
+
+.d-flex {
+  display: flex;
+}
+.j-between {
+  justify-content: space-between;
+}
+.j-around {
+  justify-content: space-around;
+}
+.j-center {
+  justify-content: center;
+}
+.fd-column {
+  flex-direction: column; 
+}
+.al-center {
+  align-items: center;
+}
+.grow1 {
+  flex-grow: 1
+}
+.grow3 {
+  flex-grow: 3
+}
+.grow5 {
+  flex-grow: 5
+}
+.grow7 {
+  flex-grow: 7
+}
+
+
+
+
+.invisible {
   display: none;
 }
+
 .box-header {
   font-family: 'Montserrat';
   font-style: normal;
@@ -243,6 +400,7 @@ p {
   letter-spacing: -0.03em;
   color: #473F4E;
 }
+
 .close-icon {
   position: absolute;
   width: 30px;
@@ -250,25 +408,27 @@ p {
   top: 14px;
   /* right: 10px; */
   left: 790px;
-  right: 10px;
+  left: 14px;
+  /* right: 30px; */
+
 }
+
 .radio-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px ;
-  width: 160px ;
-  background: radial-gradient( circle farthest-corner at 10% 20%, rgba(237,3,32,0.87) 20.8%, rgba(242,121,1,0.84) 74.4% ) !important;
+  font-size: 12px;
+  width: 160px;
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(237, 3, 32, 0.87) 20.8%, rgba(242, 121, 1, 0.84) 74.4%) !important;
 
   border-radius: 32px !important;
-
   /* width: 200px !important; */
   height: 35px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  
-  line-height: 24px ;
+
+  line-height: 24px;
   color: #FFFFFF !important;
   cursor: pointer;
 }

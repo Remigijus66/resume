@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import MainContext from "../context/MainContext";
-import remi from '../Documents/remi.jpg';
-import curriculumVitae from '../constants/cv';
+import remi from '../images/remi.jpg';
+import curriculumVitae from '../Documents/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import Boring from './Boring';

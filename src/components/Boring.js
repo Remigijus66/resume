@@ -1,86 +1,91 @@
-import {React, useContext} from 'react';
+import { React, useContext } from 'react';
 import MainContext from "../context/MainContext";
-import remi from '../Documents/remi.jpg';
-import curriculumVitae from '../constants/cv';
+// import remi from '../Documents/remi.jpg';
+import remi from '../images/remi1.jpg';
+import copyIcon from '../images/copy-icon.png';
+import curriculumVitae from '../Documents/cv';
 import { FaGithub, FaPhone, FaLinkedin } from "react-icons/fa";
 import { BsEnvelopeAt } from "react-icons/bs";
 import closeIcon from '../images/close-black-transparent.png'
 
 const Boring = () => {
   const { setFormat } = useContext(MainContext)
+  const capitalise = (str) => {
+    return str.slice(0, 1).toUpperCase() + str.slice(1)
+  }
   return (
     <div className='grid'>
-        <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')}/>
+      <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')} />
       <div className='name'>
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
+        <p>Front-end developer</p>
       </div>
       <div className='contacts'>
-        <div className='icon'> <FaPhone /></div>
-        <p>{(curriculumVitae.personal.tel)}</p>
-        <div className='dash'></div>
-        <div className='icon'> <BsEnvelopeAt /></div>
-        <p>{(curriculumVitae.personal.eMail)}</p>
-        <div className='dash'></div>
-        <div className='icon'><FaGithub /></div>
-        <p>{(curriculumVitae.personal.gitHub)}</p>
-        <div className='dash'></div>
-        <div className='icon'> <FaLinkedin /></div>
-        <p>{(curriculumVitae.personal.linkedin)}</p>
+        <h3>Contacts</h3>
+        <div className='dash wide'></div>
+        <div className='relative'>
+          <div className="copy-icon" onClick={() => navigator.clipboard.writeText(curriculumVitae.personal.tel)} ><img style={{ width: '18px' }} src={copyIcon} alt="" /> </div>
+          <FaPhone className='icon'/>
+          <p>{(curriculumVitae.personal.tel)}</p>
+          <div className='dash wide'></div>
+        </div>
+
+        <div className='relative'>
+          <div className="copy-icon" onClick={() => navigator.clipboard.writeText(curriculumVitae.personal.eMail)} ><img style={{ width: '18px' }} src={copyIcon} alt="" /> </div>
+           <BsEnvelopeAt className='icon'/>
+          <p>{(curriculumVitae.personal.eMail)}</p>
+          <div className='dash wide'></div>
+        </div>
+
+        <div className='relative'>
+          <div className="copy-icon" onClick={() => navigator.clipboard.writeText(curriculumVitae.personal.gitHub)} ><img style={{ width: '18px' }} src={copyIcon} alt="" /> </div>
+          <a href={`${(curriculumVitae.personal.gitHub)}`} target='blank'  >  <FaGithub className='icon' /></a>
+         {/* <FaGithub className='icon' /> */}
+          {/* <p>{(curriculumVitae.personal.gitHub)}</p> */}
+          <div className='dash wide'></div>
+        </div>
+
+        <div className='relative'>
+          <div className="copy-icon" onClick={() => navigator.clipboard.writeText(curriculumVitae.personal.linkedin)} ><img style={{ width: '18px' }} src={copyIcon} alt="" /> </div>
+          <a href={`https://${(curriculumVitae.personal.linkedin)}`} target='blank'  > <FaLinkedin className='icon' /></a>
+           {/* <FaLinkedin className='icon' />
+          <p>{(curriculumVitae.personal.linkedin)}</p> */}
+          <div className='dash wide'></div>
+        </div>
+
+
       </div>
+
       <img src={remi} alt="" className='photo' />
       <div className='skills'>
         <h3>Skills</h3>
+        <div className='dash'></div>
         <div className='skills-list'>
-          {(curriculumVitae.skills.map((x, i) => <span key={i}>{x}, </span>))}
+          {(curriculumVitae.skills.map((skill, i) => <span key={i}>{skill}, </span>))}
         </div>
       </div>
       <div className='education'>
         <h3>Education</h3>
-        <div className='dash'></div>
-        <div className='record'>
-          <cite>Institution:</cite>{(curriculumVitae.education[0].institution)}
-        </div>
-        <div className='record'>
-          <cite>Course:</cite>{(curriculumVitae.education[0].course)}
-        </div>
-        <div className='record'>
-          <cite>Dates:</cite>{(curriculumVitae.education[0].dates)}
-        </div>
-        <div className='record'>
-          <cite>Duration:</cite>{(curriculumVitae.education[0].duration)}
-        </div>
-        <div className='dash'></div>
-        <div className='record'>
-          <cite>Institution:</cite>{(curriculumVitae.education[1].institution)}
-        </div>
-        <div className='record'>
-          <cite>Studies:</cite>{(curriculumVitae.education[1].studies)}
-        </div>
-        <div className='record'>
-          <cite>Graduated:</cite>{(curriculumVitae.education[1].graduated)}
-        </div>
-        <div className='record'>
-          <cite>Degree:</cite>{(curriculumVitae.education[1].degree)}
-        </div>
+
+        {(curriculumVitae.education.map((x, i) => <div key={i} >
+          <div className='dash'></div>
+          {Object.keys(x).map((key, index) => <div className='record' key={index} > <cite key={index} className='record-label'>{capitalise(key) + ':'}</cite> <span className='record-value'>{x[key]}</span>   </div>)}
+        </div>))}
       </div>
+
       <div className='experience'>
         <h3>Work Experience</h3>
         {(curriculumVitae.workExperience.map((x, i) => <div key={i} >
           <div className='dash'></div>
-          {<div className='record'><cite>Company:</cite>{(x.company)}</div>}
-          {<div className='record'><cite>Dates:</cite>{(x.dates)}</div>}
-          {<div className='record'><cite>Position:</cite>{(x.position)}</div>}
-          {<div className='record'><cite>Responsibilities:</cite>{(x.responsibilities)} </div>}
-        </div>))}</div>
+
+          {Object.keys(x).map((key, index) => <div className='record' key={index} > <cite key={index} className='record-label'>{capitalise(key) + ':'}</cite> <span className='record-value'>{x[key]}</span>   </div>)}
+
+        </div>))}
+      </div>
       <div className='languages'>
         <h3>Languages</h3>
         <div className='dash'></div>
-        <div className='record'>
-          <cite>English:</cite>{(curriculumVitae.languages.english)}
-        </div>
-        <div className='record'>
-          <cite>Russian:</cite>{(curriculumVitae.languages.russian)}
-        </div>
+        {Object.keys(curriculumVitae.languages).map((key, index) => <div className='record' key={index} > <cite key={index} className='record-label'>{capitalise(key) + ':'}</cite> <span className='record-value'>{curriculumVitae.languages[key]}</span>   </div>)}
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import window from '../Documents/window.png';
+import window from '../images/window.png';
 import axios from 'axios';
 // npm install react-draggable
 
@@ -82,7 +82,7 @@ const Meteo = () => {
   }
 
   return (
-<Dragable nodeRef={nodeRef} handle=".window-container" >
+  <Dragable nodeRef={nodeRef} handle=".window-container" > 
 
     <div className="meteo" ref={nodeRef}>
       <div className="window-container">
@@ -95,7 +95,7 @@ const Meteo = () => {
 
         <p style={{ marginTop: '-10px' }}> Temperature {currentWeather.current?.temp_c} &deg; </p>
         <p> Feels like {currentWeather.current?.feelslike_c} &deg; </p>
-        <p> Wind m/s {(currentWeather?.current?.wind_kph * 0.277777778).toFixed(1)} ( {(currentWeather?.current?.gust_kph * 0.277777778).toFixed(1)}) <span className='arrow' style={{ marginLeft: '5px', color: 'red', transform: `rotate(${currentWeather.current?.wind_degree}deg) scale(2)` }} >&darr;</span> </p>
+        <p> Wind m/s {(currentWeather?.current?.wind_kph * 0.277777778).toFixed(1)} ( {(currentWeather?.current?.gust_kph * 0.277777778).toFixed(1)}) <span className='arrow' style={{ marginLeft: '5px', color: 'red', transform: `rotate(${currentWeather.current?.wind_degree}deg) scale(2)` }} >&uarr;</span> </p>
         {/* <button onClick={() => getW()}> Refresh</button> */}
       </div>
     </div>
