@@ -19,14 +19,16 @@ const Myself = () => {
           </div>
         </div>
         <div className='dash'style={{margin: '30px auto'}}></div>
-        <p>Hi, my name is Remigijus Bartaška. I am front-end developer, programming with Java Script, …….
-In 2023 I was working in a team, developing gamifying plugins (quick fun games, intended to ensure
+        <p>Hi, I am front-end developer, programming with Java Script and React.js with its modern libraries. 
+          I am Also familiar with Node and have an understanding of the back end. I have skills of Responsive design and 
+          can do Object Oriented programming. Understand REST API and can work with databases. And above on all that,
+          I think I have learners mindset, I am keen and ready for a new things in this area. </p>
+          <p>In 2023 I was working in a team, developing gamifying plugins (quick fun games, intended to ensure
 an engaging customer experience) for e-shops. In this site you will find some of the games built by
-me, as well as some of my other recent works. For a full project view please visit this site (manau,
-nereikia šito – neaktualu). Code of the games is here (ar tikrai gali atskleisti kodą?).
-Despite my yet limited IT experience, I am especially keen and ready to further excel and improve
-my skills in this area. Just try me! </p>
-      </div>
+me, as well as some of my other recent works.</p>    
+  <p> I am currently working as a freelancer, but I would eagerly join a nice team for a work on a permanent basis.
+     I am based i Vilnius, so  I can work onsite/hybrid for this location and remotely for others. </p> 
+        </div>
     </Dragable>
   )
 }

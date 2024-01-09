@@ -57,6 +57,14 @@
   left: 0%;
   background: #FFFFFF; */
 }
+* {
+  font-family: sans-serif;
+  /* font-family: cursive; */
+  /* font-family: system-ui; */
+  /* font-weight: 200; */
+  /* font-weight: 300; */
+  font-weight: 400;
+}
 
 .window {
   position: relative;
@@ -163,7 +171,10 @@ h3 {
 }
 
 p {
-  margin: 3px 0px 3px 0px;
+  padding: 5px 10px;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: lighter;
+  font-weight: 100; */
 }
 
 .dash {

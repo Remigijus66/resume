@@ -18,7 +18,7 @@ const Boring = () => {
       <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')} />
       <div className='name'>
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
-        <p>Front-end developer</p>
+        <h4>Front-end developer</h4>
       </div>
       <div className='contacts'>
         <h3>Contacts</h3>
