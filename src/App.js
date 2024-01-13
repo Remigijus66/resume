@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import MainContext from "./context/MainContext";
 import Resume from './components/Resume';
 import Canvas from './components/Canvas';
-import Meteo from './components/Meteo';
+import Meteo from './components/Meteo/Meteo';
+// import ComboBox from './components/Meteo/TestMUI';
+// import GoogleMaps from './components/Meteo/Place';
 import Clouds from './components/Clouds';
 import Myself from './components/Myself';
 import GradientTransitionComponent from './components/Gradients'
+import GoogleMaps from './components/Meteo/Place';
 
 
 
@@ -14,8 +17,16 @@ import GradientTransitionComponent from './components/Gradients'
 function App() {
  
   const [format, setFormat] = useState('')
+  const [inputValue, setInputValue] = useState('');
+  const [value, setValue] = useState(null);
+  const [lat, setLat] =useState('')
+const [long, setLong] =useState('')
   const states = {
-    format, setFormat
+    format, setFormat, 
+    inputValue, setInputValue, 
+    value, setValue, 
+    lat, setLat,
+    long, setLong
   }
 
 
@@ -36,9 +47,10 @@ function App() {
         {/* <Clouds/> */}
 
         <Resume />
-       { format === '' &&  <Myself/>}
-        {/* { format === '' &&  <Meteo />} */}
-     
+       {/* { format === '' &&  <Myself/>} */}
+        { format === '' &&  <Meteo />}
+        {/* { format === '' &&  <GoogleMaps />} */}
+        {/* <ComboBox/> */}
       </MainContext.Provider>
    
     </>

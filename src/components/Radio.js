@@ -20,9 +20,9 @@ const handleFormatChange = (val) => {
 
 <div ref={nodeRef} className={`radiobox ${ formats.includes(format)  ? 'invisible' : ''}`}>
   {/* <img className='icon'  src={moveIcon} alt="" /> */}
- <btn className='button blue-bkgr' onClick={() => setFormat('Boring')}>My Resume</btn> 
- <btn className='button red-bkgr' onClick={() => setFormat('Boring')}>My Resume</btn> 
- <btn className='button white-bkgr' onClick={() => setFormat('Boring')}>My Resume</btn> 
+ <button className='button blue-bkgr' onClick={() => setFormat('Boring')}>My Resume</button> 
+ <button className='button red-bkgr' onClick={() => setFormat('Boring')}>My Resume</button> 
+ <button className='button white-bkgr' onClick={() => setFormat('Boring')}>My Resume</button> 
  
  {/* <div className="dash"></div>
 <span className="box-header">My Resume</span>

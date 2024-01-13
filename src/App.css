@@ -2,6 +2,10 @@
   --main-color: #ddd;
   --front-color: #4880f0;
 }
+* {
+  font-family: sans-serif;
+  font-weight: 400;
+}
 
 .name-tag {
   position: absolute;
@@ -36,34 +40,44 @@
 }
 
 .meteo {
-  width: 300px;
-  height: 250px;
+  width: 260px;
+  /* height: 250px; */
+ height: 500px;
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 720px;
-  left: 50%;
+  top: 10px;
+  left: 10px;
   background: #FFFFFF;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.today {
+/* background-color: red; */
+display: flex;
+flex-direction: column;
 }
 
-.window-container {
-  /* width: 300px;
-  height: 250px;
-  border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  background: #FFFFFF; */
+.scroll {
+  flex: 1;
+   overflow-y: auto;
+   position: relative;
 }
-* {
-  font-family: sans-serif;
-  /* font-family: cursive; */
-  /* font-family: system-ui; */
-  /* font-weight: 200; */
-  /* font-weight: 300; */
-  font-weight: 400;
+.scroll::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Style for Firefox */
+.scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent; /* Color of the scrollbar thumb and track */
 }
 
 .window {
@@ -538,3 +552,25 @@ p {
 .content {
   padding: 5px 10px;
 }
+
+.MuiAutocomplete-root {
+
+  background-color: red;
+ }
+
+
+/* Increase the specificity */
+.MuiAutocomplete.Mui-selected {
+  background-color: green;
+}
+/* .MuiAutocomplete.Mui-focused {
+color: red
+} */
+
+/* .MuiFormLabel-root {
+  color: red
+} */
+
+/* .MuiInputLabel-root {
+color: red
+} */
