@@ -64,6 +64,7 @@ flex-direction: column;
   flex: 1;
    overflow-y: auto;
    position: relative;
+   overflow-x: hidden;
 }
 .scroll::-webkit-scrollbar {
   width: 8px; /* Set the width of the scrollbar */
@@ -406,11 +407,52 @@ p {
   flex-grow: 7
 }
 
+.wheather-line {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: 3fr 3fr 2fr 2fr 2fr 1fr;
+  gap: 3px;
+  text-align: center;
+  /* position: relative */
+}
+.first {
+  grid-column: 1;
+  /* position: absolute;
+  left: 0px; */
+}
 
+.second {
+  /* position: absolute;
+  left: 80px; */
+  grid-column: 2;
+}
 
+.third {
+  /* position: absolute;
+  left: 120px; */
+  grid-column: 3;
+}
 
-.invisible {
-  display: none;
+.fourth {
+  /* position: absolute;
+  left: 170px; */
+  grid-column: 4;
+}
+
+.fifth {
+  /* position: absolute;
+  left: 210px; */
+  grid-column: 5;
+}
+.sixth {
+  /* position: absolute;
+  left: 210px; */
+  grid-column: 6;
+}
+
+.thin-divider{
+  border-bottom: #ccc solid 1px;
+  width: 100%;
 }
 
 .box-header {

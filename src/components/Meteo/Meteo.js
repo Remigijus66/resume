@@ -5,12 +5,168 @@ import axios from 'axios';
 import Dragable from 'react-draggable';
 import GoogleMaps from './Place';
 import CenteredTabs from './Tabs';
+import Forecast from './Forecast';
 
 const Meteo = () => {
   const nodeRef = useRef(null);
   const {inputValue, value, lat, setLat, long, setLong } = useContext(MainContext)
-  const [tabValue, setTabValue] = useState('Today')
+  const [tabValue, setTabValue] = useState('Forecast')
   const [currentWeather, setCurrentWeather] = useState({})
+  const [ forecast, setForecast] = useState({location:
+    {name: 'Vilnius', region: 'Vilniaus Apskritis', country: 'Lithuania', lat: 54.73, lon: 25.42},
+     current:
+      {last_updated_epoch: 1705160700, last_updated: '2024-01-13 17:45', temp_c: -10, temp_f: 14, is_day: 0,}, 
+      forecast: {forecastday: [ 
+      {date: '2024-01-14', date_epoch: 1705104000, day: 'object', astro: 'object', hour: [
+{time_epoch: 1705096800, time: '2024-01-13 00:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 10, },
+{time_epoch: 1705096800, time: '2024-01-13 01:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 20.5, gust_kph:23.9, wind_degree: 235},
+{time_epoch: 1705096800, time: '2024-01-13 02:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 180},
+{time_epoch: 1705096800, time: '2024-01-13 03:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 359},
+{time_epoch: 1705096800, time: '2024-01-13 04:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 05:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 06:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+  "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 07:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 08:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 09:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 10:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 11:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 12:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 13:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 14:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 15:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 16:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 17:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 18:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 19:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 20:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 21:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 22:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+{time_epoch: 1705096800, time: '2024-01-13 23:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+"//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+      ]},  
+      {date: '2024-01-14', date_epoch: 1705104000, day: 'object', astro: 'object', hour: [
+        {time_epoch: 1705096800, time: '2024-01-13 00:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234, },
+        {time_epoch: 1705096800, time: '2024-01-13 01:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 02:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 03:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 04:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 05:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 06:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 07:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 08:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 09:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 10:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 11:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 12:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 13:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 14:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 15:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 16:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 17:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 18:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 19:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 20:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 21:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 22:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 23:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+               ]},  
+      {date: '2024-01-16', date_epoch: 1705104000, day: 'object', astro: 'object', hour: [
+        {time_epoch: 1705096800, time: '2024-01-13 00:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234, },
+        {time_epoch: 1705096800, time: '2024-01-13 01:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 02:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 03:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 04:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 05:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 06:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+          "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 07:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 08:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 09:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 10:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 11:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 12:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 13:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 14:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 15:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 16:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 17:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 18:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 19:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 20:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 21:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 22:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+        {time_epoch: 1705096800, time: '2024-01-13 23:00', temp_c: -0.4, temp_f: 31.3, is_day: 0, condition: {code: 1225, icon: 
+        "//cdn.weatherapi.com/weather/64x64/night/338.png", text: "Heavy snow"}, precip_mm: 0.33, wind_kph: 15.5, gust_kph:22.9, wind_degree: 234},
+              ]}]}})
   // const [currentWeather, setCurrentWeather] = useState({location:{country:"Lithuania", lat : 54.73, localtime : "2024-01-09 13:00", localtime_epoch : 1704798008, lon: 25.42,name: "Vilnius", region : "Vilniaus Apskritis", tz_id : "Europe/Vilnius" } ,
   // current:{ cloud : 75, condition : {text: 'Overcast', icon: '//cdn.weatherapi.com/weather/64x64/day/122.png', code: 1009},
   // feelslike_c : -12.8, feelslike_f : 8.9, gust_kph : 20.1, gust_mph: 12.5, humidity: 100,is_day:  1, last_updated: "2024-01-09 13:00",
@@ -30,10 +186,9 @@ const Meteo = () => {
       const crd = pos.coords;
       setLat(crd.latitude);
       setLong(crd.longitude)
+      console.log('pos', pos)
       console.log('lat', lat, 'long',  long)
-      // temp diable, kad rekvestu nepadauginti 
-      // getW(crd.latitude, crd.longitude)
-    }
+       }
     
     const error = (err) =>  {
       console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -44,17 +199,16 @@ const Meteo = () => {
   }, [])
 
   useEffect(() => {
-         getW(lat, long)
+        //  getW(lat, long)
   }, [lat, long])
 
 
-  const getW = async (lat, long) => {
-
+  const getW = async (latit, longit) => {
     // https://rapidapi.com/weatherapi/api/weatherapi-com
     const options = {
       method: 'GET',
       url: 'https://weatherapi-com.p.rapidapi.com/current.json',
-      params: { q: `${lat}, ${long}` },
+      params: { q: `${latit}, ${longit}` },
       headers: {
         'X-RapidAPI-Key': '4ea6492e0dmsha422720d6c5b0acp117504jsn61b4bf0cdd45',
         'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
@@ -69,18 +223,15 @@ const Meteo = () => {
     } catch (error) {
       console.error(error);
     }
-
   }
 
-  const getForecast = async (lat, long, d) => {
-
-
+  const getForecast = async (latid, longit) => {
     const options = {
       method: 'GET',
       url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
       params: {
-        q:  `${lat}, ${long}` ,
-        days: '3'
+        q:  `${latid}, ${longit}` ,
+        days: 10
       },
       headers: {
         'X-RapidAPI-Key': '4ea6492e0dmsha422720d6c5b0acp117504jsn61b4bf0cdd45',
@@ -90,12 +241,16 @@ const Meteo = () => {
     console.log(options)
     try {
       const response = await axios.request(options);
-      console.log(response.data);
+      console.log( 'forecast', response.data);
+      setForecast(response.data)
     } catch (error) {
       console.error(error);
     }
   }
-
+ 
+ 
+ // API is koordinaciu duoda miesto pavadinima, reiketu pakeisti i googlo API arba 
+//  vieta nustatyti is meterologinio API, nes ribotas kreipiniu per diena limitas ir programa stringa. 
   const getPlace= async (latitude, longitude) => {
     const options = {
       method: 'GET',
@@ -157,8 +312,8 @@ const Meteo = () => {
 
    </div>
       </div> }
-      {tabValue === 'Forecast' &&  <div className='scroll'>Forecast</div>}
-      <button style={{ margin: '4px 10px' }} onClick={() => getForecast(lat, long)}> Refresh</button>
+      {tabValue === 'Forecast' &&  <Forecast forecast={(forecast)} testprop = 'test'/>}
+      <button style={{ margin: '4px 10px' }} onClick={() => getForecast(lat, long)}> get forecast</button>
     </div>
 </Dragable>
   )
