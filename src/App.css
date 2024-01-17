@@ -449,6 +449,9 @@ p {
   left: 210px; */
   grid-column: 6;
 }
+.color-white{
+  color: white
+}
 
 .thin-divider{
   border-bottom: #ccc solid 1px;
@@ -479,6 +482,7 @@ p {
   /* right: 30px; */
 
 }
+
 
 .radio-button {
   display: flex;
