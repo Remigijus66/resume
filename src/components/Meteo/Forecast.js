@@ -13,7 +13,7 @@ const Forecast = ({forecast}) => {
 
 return ( 
     <>
-      <div className='wheather-line' style={{fontSize: '10px'}}>
+      <div className='wheather-line' style={{marginTop: '5px', fontSize: '10px'}}>
             <span className="first">Time</span>
             <span className="third"> Temp &deg; C</span>
             <span className="fourth">Precip. mm</span>

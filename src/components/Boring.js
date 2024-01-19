@@ -14,12 +14,13 @@ const Boring = () => {
     return str.slice(0, 1).toUpperCase() + str.slice(1)
   }
   return (
-    <div className='grid'>
+    <div className='grid scroll'>
       <img src={closeIcon} alt="" className="close-icon" onClick={() => setFormat('')} />
       <div className='name'>
         <h2>{(curriculumVitae.personal.firstName) + ' ' + (curriculumVitae.personal.lastName)}</h2>
         <h4>Front-end developer</h4>
       </div>
+      <img src={remi} alt="" className='photo' />
       <div className='contacts'>
         <h3>Contacts</h3>
         <div className='dash wide'></div>
@@ -56,13 +57,22 @@ const Boring = () => {
 
       </div>
 
-      <img src={remi} alt="" className='photo' />
+     
       <div className='skills'>
         <h3>Skills</h3>
         <div className='dash'></div>
         <div className='skills-list'>
           {(curriculumVitae.skills.map((skill, i) => <span key={i}>{skill}, </span>))}
         </div>
+      </div>
+      <div className='experience'>
+        <h3>Work Experience</h3>
+        {(curriculumVitae.workExperience.map((x, i) => <div key={i} >
+          <div className='dash'></div>
+
+          {Object.keys(x).map((key, index) => <div className='record' key={index} > <cite key={index} className='record-label'>{capitalise(key) + ':'}</cite> <span className='record-value'>{x[key]}</span>   </div>)}
+
+        </div>))}
       </div>
       <div className='education'>
         <h3>Education</h3>
@@ -73,15 +83,6 @@ const Boring = () => {
         </div>))}
       </div>
 
-      <div className='experience'>
-        <h3>Work Experience</h3>
-        {(curriculumVitae.workExperience.map((x, i) => <div key={i} >
-          <div className='dash'></div>
-
-          {Object.keys(x).map((key, index) => <div className='record' key={index} > <cite key={index} className='record-label'>{capitalise(key) + ':'}</cite> <span className='record-value'>{x[key]}</span>   </div>)}
-
-        </div>))}
-      </div>
       <div className='languages'>
         <h3>Languages</h3>
         <div className='dash'></div>

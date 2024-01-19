@@ -9,7 +9,12 @@ export default function CenteredTabs({value, setValue}) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log (value)
+  };
+  const setToday = (event, newValue) => {
+    setValue('Today');
+  };
+  const setForecast = (event, newValue) => {
+    setValue('Forecast');
   };
 //   const handleChange = (event, newValue) => {
 //     setTabValue(newValue);
@@ -20,14 +25,16 @@ export default function CenteredTabs({value, setValue}) {
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <Tabs
         value={value}
-        onChange={handleChange}
+        // onChange={handleChange}
         textColor="secondary"
         indicatorColor="secondary"
         aria-label="secondary tabs example"
         centered
       >
-       <Tab  value="Today"  label="Current" />
-        <Tab value="Forecast" label="Forecast" />
+       <Tab  value="Today"  label="Current"  onClick={setToday}
+        onTouchEnd={setToday} />
+        <Tab value="Forecast" label="Forecast"  onClick={setForecast}
+        onTouchEnd={setForecast} />
         {/* <Tab label="Item Three" /> */}
       </Tabs>
     </Box>

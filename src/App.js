@@ -15,7 +15,7 @@ import GoogleMaps from './components/Meteo/Place';
 
 
 function App() {
- 
+ const[meteo, setMeteo] =useState(false)
   const [format, setFormat] = useState('')
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState(null);
@@ -26,7 +26,8 @@ const [long, setLong] =useState('')
     inputValue, setInputValue, 
     value, setValue, 
     lat, setLat,
-    long, setLong
+    long, setLong, 
+    meteo, setMeteo
   }
 
 
@@ -46,9 +47,13 @@ const [long, setLong] =useState('')
 
         {/* <Clouds/> */}
 
-        <Resume />
+{/* atkomentuoti Resume ir nuimti hidden */}
+         <Resume /> 
+        
        {/* { format === '' &&  <Myself/>} */}
-        { format === '' &&  <Meteo />}
+     <Myself/>
+        {/* { (format === '' && meteo) && <Meteo />} */}
+      {meteo && <Meteo />}
         {/* { format === '' &&  <GoogleMaps />} */}
         {/* <ComboBox/> */}
       </MainContext.Provider>

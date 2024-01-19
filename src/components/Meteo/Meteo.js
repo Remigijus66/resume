@@ -11,7 +11,7 @@ import Day from './Day';
 const Meteo = () => {
   const nodeRef = useRef(null);
   const {inputValue, value, lat, setLat, long, setLong } = useContext(MainContext)
-  const [tabValue, setTabValue] = useState('Forecast')
+  const [tabValue, setTabValue] = useState('Today')
   const [currentWeather, setCurrentWeather] = useState({})
   const [ forecast, setForecast] = useState({});
  const [place, setPlace] = useState('')
@@ -122,11 +122,11 @@ const Meteo = () => {
   return (
   <Dragable nodeRef={nodeRef} handle="#drag" > 
 
-    <div className="meteo"  ref={nodeRef}>
+    <div className="meteo" >
       {/* <div className="window-container"> */}
     <GoogleMaps  currentLocacion={place}  sx={{ borderRadius: '32px',
                       padding: '50px', backgroundColor: 'green'}}/>
-<div id='drag'>
+<div ref={nodeRef} id='drag'>
      <CenteredTabs value={tabValue} setValue={setTabValue}/>
 
   { tabValue === 'Today'  && <div className='today scroll'>
@@ -157,7 +157,7 @@ const Meteo = () => {
 
    </div>
       </div> }
-      {tabValue === 'Forecast' &&  <Forecast forecast={(forecast)} testprop = 'test'/>}
+      {tabValue === 'Forecast' &&  <Forecast forecast={(forecast)} />}
       {/* {tabValue === 'Forecast' &&  <Day day={(forecast.forecast.forecastday[0])} />} */}
       {/* <button style={{ margin: '4px 10px' }} onClick={() => getForecast(lat, long)}> get forecast</button> */}
     </div>

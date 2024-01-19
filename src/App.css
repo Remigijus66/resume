@@ -7,15 +7,24 @@
   font-weight: 400;
 }
 
+
+
+
 .name-tag {
-  position: absolute;
-  top: 30px;
-  left: 20%;
+  position: absolute !important;
+  top: 20px;
+
+  /* margin-left: auto; */
+/* margin-right: auto; */
+left: calc(100vw*0.65 - 545px) ;
+/* right: 5px; */
+
   font-size: 20px;
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 500px;
+  max-width: 500px;
+  width: 95vw;
   /* height: 700px; */
   border-radius: 16px;
   background: #FFFFFF;
@@ -37,6 +46,9 @@
   justify-content: center; */
   /* font-size: calc(10px + 2vmin);
   color: white; */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .meteo {
@@ -49,7 +61,7 @@
   top: 10px;
   left: 10px;
   background: #FFFFFF;
-  z-index: 3;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -186,7 +198,7 @@ h3 {
 }
 
 p {
-  padding: 5px 10px;
+  padding: 5px 15px;
   /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: lighter;
   font-weight: 100; */
@@ -281,13 +293,14 @@ p {
   grid-template-areas:
     "photo-area name-area"
     "photo-area skills-area "
-    "contacts-area education-area"
     "contacts-area  experience-area"
+    "contacts-area education-area"
     "contacts-area languages-area";
   position: relative;
-  z-index: 4;
+  z-index: 5;
   overflow: scroll;
-  max-height: 100vh;
+  overflow-x: hidden;
+  max-height: 95vh;
 }
 
 .icon {
@@ -336,8 +349,8 @@ p {
   font-size: 20px;
   width: 260px;
 
-  top: 100px;
-  left: 50%;
+  top: 20px;
+  left: 65%;
   border-radius: 11px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #ddd;
@@ -599,24 +612,76 @@ p {
   padding: 5px 10px;
 }
 
-.MuiAutocomplete-root {
 
-  background-color: red;
+@media (max-width: 800px) {
+  .radiobox {
+    position: absolute !important;
+    left:50%;
+    /* width: 50%; */
+   }
+.name-tag {
+  position: absolute !important;
+   margin-left: auto;
+margin-right: auto;
+left: 5px ;
+right: 5px;
+top: 225px;
+max-height: calc(100vh - 230px);
+overflow-y: scroll;
  }
+ } 
+@media (max-width: 460px) {
+ 
+ .button {
+   padding: 10px;
+  width: 120px ;
+  font-size: 12px ;
+ }
+ .bud {
+   padding: 10px;
+  width: 120px ;
+  font-size: 12px ;
+ }
+ } 
+@media (max-width: 600px) {
+ 
+  .grid {
 
+    /* background-color: rgb(244, 244, 253); */
+    /* max-width: 800px; */
+    /* width: 95%; */
+    /* margin: 0 auto; */
+    /* gap: 15px; */
+    /* padding: 15px; */
+    display: flex;
+flex-wrap: wrap;
 
-/* Increase the specificity */
-.MuiAutocomplete.Mui-selected {
-  background-color: green;
-}
-/* .MuiAutocomplete.Mui-focused {
-color: red
-} */
+    grid-template-columns: none;
+    grid-template-areas: none;
+   
+ 
+  }
+  .name {
+    width: 100%
+  }
+  .languages {
+    width: 100%
+  }
+  .skills {
+    margin-top: 10px;
+  }
+  .photo {
+    margin: auto auto 0 auto;
+  }
 
-/* .MuiFormLabel-root {
-  color: red
-} */
-
-/* .MuiInputLabel-root {
-color: red
-} */
+ } 
+ @media (max-width: 430px) {
+  .photo {
+    max-width: 100%;
+  }
+ }
+ @media (max-width: 430px) {
+  .contacts {
+    width: 100%;
+  }
+ }

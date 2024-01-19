@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import parse from "autosuggest-highlight/parse";
 import { debounce } from '@mui/material/utils';
 import   Find  from "../../images/find.png"
+import closeIcon from '../../images/close-black-transparent.png'
+
 // This key was created specifically for the demo in mui.com.
 // You need to create a new one for your application.
 const GOOGLE_MAPS_API_KEY = 'AIzaSyDAAPUFwT8luAVssdp6TOeIy_BjIaRw3NA';
@@ -30,7 +32,7 @@ function loadScript(src, position, id) {
 const autocompleteService = { current: null };
 
 export default function GoogleMaps({currentLocacion}) {
-  const {inputValue, setInputValue, value, setValue, lat, setLat, long, setLong } = React.useContext(MainContext)
+  const {inputValue, setInputValue, value, setValue, lat, setLat, long, setLong ,  setMeteo} = React.useContext(MainContext)
   // const [value, setValue] = React.useState(null);
   // const [inputValue, setInputValue] = React.useState('');
   const [options, setOptions] = React.useState([]);
@@ -196,7 +198,7 @@ export default function GoogleMaps({currentLocacion}) {
          );
         }}
     />
-       <img className='icon' style= {{padding: '10px'}} src={Find} alt="" />
+     <img onTouchEnd={() => setMeteo(false)} onClick={() => setMeteo(false)}className='icon' style= {{padding: '10px'}} src={closeIcon} alt=""  />
      </div>
   );
 }

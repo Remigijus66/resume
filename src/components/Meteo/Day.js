@@ -84,7 +84,7 @@ setUngrouped(ungroupedCopy)
      return result;
   }
   const isInFuture = (time) => {
-    return(time.slice(-2) > new Date().getHours() )
+    return(time.slice(-2) > new Date().getHours() || time.slice(-5)==='18-00')
     } 
 
     const notToday = (day) => {
@@ -100,7 +100,7 @@ setUngrouped(ungroupedCopy)
 return ( 
     <>
       <div className='d-flex j-center' style={{gap: '5px', width: '100%', fontSize: '14px', backgroundColor:'#ddd',padding: '3px 0px', margin: '3px 0px'}}>{day.date}
-      <div className='d-flex j-center' onClick={()=> {toggleHourly(); console.log(hourly)}} style={{fontSize: '10px'}}><span></span>{ hourly ?  <span >&#9650; </span>: <span >&#9660; </span> }</div>
+      <div className='d-flex j-center'onTouchEnd={()=> toggleHourly()} onClick={()=> toggleHourly()} style={{fontSize: '10px'}}><span></span>{ hourly ?  <span >&#9650; </span>: <span >&#9660; </span> }</div>
       </div>
    {(hourly ? ungrouped: grouped).filter((interval, i ) => {return isInFuture(interval.time) || notToday(day.date)})
    .map((interval, i ) => {return <div className='wheather-line  thin-divider' style={{fontSize: '14px'}} key={i}> 
@@ -111,7 +111,7 @@ return (
    <span className="fifth"> {(interval.wind_kph * 0.277777778).toFixed(0)}({((interval.gust_kph * 0.277777778).toFixed(0))}) </span>
    <span className="sixth" style={{ fontSize: '12px', marginLeft: '2px', color: 'red', transform: `rotate(${interval.wind_degree}deg)  ` }} >&uarr;</span>
        </div> })}
-    <div className='d-flex j-center' onClick={()=> {toggleHourly(); console.log(hourly)}} style={{fontSize: '10px'}}><span>Hourly</span>{ hourly ?  <span >&#9650; </span>: <span >&#9660; </span> }</div>
+    <div className='d-flex j-center' onTouchEnd={()=> toggleHourly()}  onClick={()=> toggleHourly()} style={{fontSize: '10px'}}><span>Hourly</span>{ hourly ?  <span >&#9650; </span>: <span >&#9660; </span> }</div>
      </>)
 
 
