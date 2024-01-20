@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import MainContext from "../context/MainContext";
 import closeIcon from '../images/close-black-transparent.png'
+import moveIcon from '../images/move.png'
+import Dragable from 'react-draggable'
 
-function Radio() {
+function Radio({ }) {
+  const nodeRef = useRef(null);
   const [apperance, setApperance] = useState('')
-  const { format, setFormat } = useContext(MainContext)
+  const { format, setFormat,   setMeteo } = useContext(MainContext)
   const formats = [  'Boring', 'Colorful', 'Illiterating' ]
 
 const handleFormatChange = (val) => {
@@ -13,12 +16,19 @@ const handleFormatChange = (val) => {
 }
 
   return (
-   <div className={`radiobox ${ formats.includes(format)  ? 'invisible' : ''}`}>
-           <span className="box-header">My Resume</span>
-{formats.map((format, i) => {return (<div className="radio-button" key={i} onClick={() => {handleFormatChange(format); console.log(format, 'click', format === 'Raw')}}>{format} </div>)})}
+    <Dragable nodeRef={nodeRef} handle=".radiobox" >
+
+<div id='radiobox' ref={nodeRef} className={`radiobox ${ formats.includes(format)  ? 'invisible' : ''}`}>
+  {/* <img className='icon'  src={moveIcon} alt="" /> */}
+ {/* <button className='button red-bkgr' onClick={() => setFormat('Boring')}>My Resume</button>  */}
+ <button className='button white-bkgr' onTouchEnd={() => setFormat('Boring')} onClick={() => setFormat('Boring')}>My Resume</button> 
+ <button className='button blue-bkgr' onTouchEnd={() => setMeteo(true)} onClick={() => setMeteo(true)}>METEO project</button> 
  
-   {/* <img src={closeIcon} alt="" className="close-icon" /> */}
-    </div>
+ {/* <div className="dash"></div>
+<span className="box-header">My Resume</span>
+{formats.map((format, i) => {return (<div className="buttonn red-bkgr" key={i} onClick={() => {handleFormatChange(format); console.log(format, 'click', format === 'Raw')}}>{format} </div>)})}  */}
+</div>
+    </Dragable>
   )
 }
 

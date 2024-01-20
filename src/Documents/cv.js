@@ -7,7 +7,7 @@ const curriculumVitae = {
     gitHub: 'https://github.com/Remigijus66',
     linkedin: 'www.linkedin.com/in/remigijus-bartaska'
   },
-  skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js', 'MongoDB'],
+  skills: [ 'JavaScript', 'React.js', 'Node.js', 'REST API', 'OOP', 'Github', 'Responsive Web design', 'CSS','HTML', ],
   education: [
     {
       institution: 'Code Academy',
@@ -18,38 +18,31 @@ const curriculumVitae = {
     {
       institution: 'Vilnius University, Faculty of Economics',
       studies: 'Economic data management systems',
-      graduated: '1991',
+      // graduated: '1991',
       degree: 'Master of Science'
     },
   ],
   workExperience: [
     {
-      company: 'UAB Aladin Innovations',
-      dates: '2022-current',
+      company: 'Boomio',
+      dates: '2023-2024',
       position: 'FrontEnd developer',
-      responsibilities: 'Develop new features of React app, Build online games OOP'
+      responsibilities: 'Develop new features of React app, Build online games OOP',
     },
     {
       company: 'UAB Inkstar Europe',
       dates: '2019-2021',
-      position: 'Director',
+      position: 'Development Manager',
       responsibilities: 'Launching and running the tea shop chain'
     },
     {
-      company: 'AB Lietuvos Geležinkeliai ',
-      dates: '2013-2017',
-      position: 'Senior risk management officer',
-      responsibilities: 'Development of the risk management system. Risk management process coordination'
+      position: 'Career at financial institutions',
+      dates: 'till 2017',
     },
-    {
-      company: 'AB bank Snoras',
-      dates: '2001-2012',
-      position: 'Director of the Treasury Department'
-    },
-  ],
+    ],
   languages: {
-    english: 'fluent written and oral',
-    russian: 'fluent written and oral'
+    english: 'Fluent written and oral',
+    russian: 'Fluent written and oral'
   }
 }
 export default curriculumVitae

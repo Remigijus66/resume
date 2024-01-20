@@ -1,4 +1,4 @@
-import curriculumVitae from '../Documents/rawCV.png';
+import curriculumVitae from '../images/rawCV.png';
 import closeIcon from '../images/close-black-transparent.png'
 import React, { useContext} from "react";
 import MainContext from "../context/MainContext";
