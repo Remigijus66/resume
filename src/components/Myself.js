@@ -29,7 +29,7 @@ const Myself = () => {
             <p> In this site I've also added my small project, which I skeched just for myself. It is an API based world-wide 
               wheather forecast app.</p>    
   <p> I am currently working as a freelancer, but I would eagerly join a nice team for a work on a permanent basis.
-     I am based i Vilnius, so  I can work onsite/hybrid for this location and remotely for others. </p> 
+     I am based in Vilnius, so  I can work onsite/hybrid for this location and remotely for others. </p> 
      <p> Enjoy dawns and sunsets.</p>
         </div>
     </Dragable>
