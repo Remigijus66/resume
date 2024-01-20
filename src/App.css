@@ -401,8 +401,14 @@ p {
 .j-center {
   justify-content: center;
 }
+.j-end {
+  justify-content:flex-end;
+}
 .fd-column {
   flex-direction: column; 
+}
+.al-center {
+  align-items: center;
 }
 .al-center {
   align-items: center;
