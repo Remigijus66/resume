@@ -143,7 +143,7 @@ const Meteo = () => {
     
       <div>
 <p className='d-flex  j-around' style={{ margin: '0px', fontSize: '18px' }}> Wind </p>
-<p className='d-flex  j-around' style={{ margin: '0px', fontSize: '14px' }}> {currentWeather.current?.wind_dir} <span className='arrow' style={{ fontSize: '12px', marginLeft: '5px', color: 'red', transform: `rotate(${currentWeather.current?.wind_degree}deg) scale(2)` }} >&uarr;</span> </p>
+<p className='d-flex  j-around' style={{ margin: '0px', fontSize: '14px' }}> {currentWeather.current?.wind_dir} <span className='arrow' style={{ fontSize: '12px', marginLeft: '5px', color: 'red', transform: `rotate(${currentWeather.current?.wind_degree}deg) scale(2)` }} >&darr;</span> </p>
 <p className='d-flex  j-around' style={{ margin: '0px', fontSize: '14px' }}>
 {(currentWeather?.current?.wind_kph * 0.277777778).toFixed(1)}({((currentWeather?.current?.gust_kph * 0.277777778).toFixed(1))}) m/s
 </p>

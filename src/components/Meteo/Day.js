@@ -109,7 +109,7 @@ return (
    <span className="third" > {interval.temp_c.toFixed(0)} &deg;</span>
    <span className={`fourth ${interval.precip_mm === 0 ? 'color-white' : ''}`} > {interval.precip_mm.toFixed(1)} </span>
    <span className="fifth"> {(interval.wind_kph * 0.277777778).toFixed(0)}({((interval.gust_kph * 0.277777778).toFixed(0))}) </span>
-   <span className="sixth" style={{ fontSize: '12px', marginLeft: '2px', color: 'red', transform: `rotate(${interval.wind_degree}deg)  ` }} >&uarr;</span>
+   <span className="sixth" style={{ fontSize: '12px', marginLeft: '2px', color: 'red', transform: `rotate(${interval.wind_degree}deg)  ` }} >&darr;</span>
        </div> })}
     <div className='d-flex j-center' onTouchEnd={()=> toggleHourly()}  onClick={()=> toggleHourly()} style={{fontSize: '10px'}}><span>Hourly</span>{ hourly ?  <span >&#9650; </span>: <span >&#9660; </span> }</div>
      </>)
