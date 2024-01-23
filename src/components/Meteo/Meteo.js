@@ -120,7 +120,7 @@ const Meteo = () => {
   }
 
   return (
-  <Dragable nodeRef={nodeRef} handle="#drag" > 
+  // <Dragable nodeRef={nodeRef} handle="#drag" > 
 
     <div className="meteo" >
       {/* <div className="window-container"> */}
@@ -162,7 +162,7 @@ const Meteo = () => {
       {/* <button style={{ margin: '4px 10px' }} onClick={() => getForecast(lat, long)}> get forecast</button> */}
     </div>
 </div>
-</Dragable>
+// </Dragable>
   )
 }
 
