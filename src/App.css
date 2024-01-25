@@ -26,6 +26,7 @@ left: calc(100vw*0.65 - 545px) ;
   max-width: 500px;
   width: 95vw;
   /* height: 700px; */
+  max-height: calc(100vh - 80px);
   border-radius: 16px;
   background: #FFFFFF;
   z-index: 4;
@@ -633,19 +634,23 @@ left: 5px ;
 right: 5px;
 top: 225px;
 max-height: calc(100vh - 230px);
+max-width: 500px;
+width: 88vw;
 overflow-y: scroll;
  }
  } 
 @media (max-width: 460px) {
- 
+  .radiobox {
+      left:10%;
+      }
  .button {
    padding: 10px;
-  width: 120px ;
+  width: 140px ;
   font-size: 12px ;
  }
  .bud {
    padding: 10px;
-  width: 120px ;
+  width: 140px ;
   font-size: 12px ;
  }
  } 
