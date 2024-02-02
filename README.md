@@ -1,8 +1,3 @@
-My animated CV
+My CV and projects
 
-Deployment: https://resume-remigijus-bartaska.onrender.com
-
-In the project directory, you can run: `npm start`
-
-
-
+Deployment: https://remigijus.onrender.com/
