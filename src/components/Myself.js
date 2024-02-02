@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Dragable from 'react-draggable'
 import remi from '../images/remi2.jpg';
-import moveIcon from '../images/move.png';
+// import moveIcon from '../images/move.png';
 
 
 const Myself = () => {
