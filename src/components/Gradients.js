@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from 'react';
-// import './../test.scss';
 import './../gradients.scss';
-
 
 const GradientTransitionComponent = () => {
   const [h, setH] = useState(4)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (h<24) {
+      if (h < 24) {
         setH(prevCount => prevCount + 1);
       } else {
         setH(0);
       }
     }, 3000);
-
-    // Cleanup function to clear the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, [h]);
 
   return (
     <>
-      {/* <h1> {h}</h1> */}
       <div className={`sky-gradient sky-gradient-00 ${h === 0 ? 'show' : ''}`}></div>
       <div className={`sky-gradient sky-gradient-01 ${h === 1 ? 'show' : ''}`}></div>
       <div className={`sky-gradient sky-gradient-03 ${h === 2 ? 'show' : ''}`}></div>
@@ -47,7 +42,6 @@ const GradientTransitionComponent = () => {
       <div className={`sky-gradient sky-gradient-22 ${h === 22 ? 'show' : ''}`}></div>
       <div className={`sky-gradient sky-gradient-23 ${h === 23 ? 'show' : ''}`}></div>
       <div className={`sky-gradient sky-gradient-24 ${h === 24 ? 'show' : ''}`}></div>
-     
     </>
   );
 };
