@@ -1,63 +1,33 @@
 import './App.css';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MainContext from "./context/MainContext";
-import Resume from './components/Resume';
-import Canvas from './components/Canvas';
-import Meteo from './components/Meteo/Meteo';
-// import ComboBox from './components/Meteo/TestMUI';
-// import GoogleMaps from './components/Meteo/Place';
-import Clouds from './components/Clouds';
+import Radio from './components/Radio';
 import Myself from './components/Myself';
 import GradientTransitionComponent from './components/Gradients'
-import GoogleMaps from './components/Meteo/Place';
-
-
-
 
 function App() {
- const[meteo, setMeteo] =useState(false)
-  const [format, setFormat] = useState('')
+  const [meteo, setMeteo] = useState(false)
   const [inputValue, setInputValue] = useState('');
+  const [showResume, setShowResume] = useState(false)
   const [value, setValue] = useState(null);
-  const [lat, setLat] =useState('')
-const [long, setLong] =useState('')
+  const [lat, setLat] = useState('')
+  const [long, setLong] = useState('')
   const states = {
-    format, setFormat, 
-    inputValue, setInputValue, 
-    value, setValue, 
+    inputValue, setInputValue,
+    value, setValue,
     lat, setLat,
-    long, setLong, 
-    meteo, setMeteo
+    long, setLong,
+    meteo, setMeteo,
+    showResume, setShowResume
   }
 
-
   return (
-    // <div className="App">
-
     <>
-  
-  
-
-   
       <MainContext.Provider value={states}>
-
-    
-
-   < GradientTransitionComponent />
-
-        {/* <Clouds/> */}
-
-{/* atkomentuoti Resume ir nuimti hidden */}
-         <Resume /> 
-        
-       {/* { format === '' &&  <Myself/>} */}
-     <Myself/>
-        {/* { (format === '' && meteo) && <Meteo />} */}
-      {meteo && <Meteo />}
-        {/* { format === '' &&  <GoogleMaps />} */}
-        {/* <ComboBox/> */}
+        < GradientTransitionComponent />
+        <Radio />
+        <Myself />
       </MainContext.Provider>
-   
     </>
   );
 }

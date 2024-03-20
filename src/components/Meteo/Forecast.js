@@ -1,16 +1,7 @@
-import { React, useEffect, useState} from 'react';
+import React from 'react';
 import Day from './Day';
 
-
 const Forecast = ({forecast}) => {
-
-
-    useEffect(() => {
-//   console.log('forecast.forecast.forecastday[0].hour ', forecast.forecast.forecastday[0].hour )
-
-  }, [])
-
-
 return ( 
     < div  >
       <div className='wheather-line' style={{marginTop: '5px', fontSize: '10px'}}>
@@ -22,10 +13,7 @@ return (
         <div className='scroll' style={{height: '365px'}}>
    { forecast.forecast?.forecastday.map((d, i)=>{ return <Day key={i} day={d}/>})}
         </div>
-  
-    </div>)
-
-
-
+     </div>)
 } 
+
 export default Forecast
